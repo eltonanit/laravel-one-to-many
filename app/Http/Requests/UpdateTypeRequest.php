@@ -13,7 +13,7 @@ class UpdateTypeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,17 @@ class UpdateTypeRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
-    {
+     public function rules(){
         return [
-            //
+            'name' => ['required|max:100'],
+            
+        ];
+    }
+    public function messages(){
+        return [
+            "name.required" => "Il nome del progetto è obbligatorio",
+            "name.max" => "Il nome del progetto deve essere lungo al massimo :max caratteri",
+            
         ];
     }
 }

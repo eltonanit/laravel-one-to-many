@@ -13,7 +13,7 @@ class StoreTypeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,17 +23,15 @@ class StoreTypeRequest extends FormRequest
      */
     public function rules(){
         return [
-            'name' => 'required|max:200',
-            'image' => 'nullable|image|max:4084',
-            'summary' => 'nullable'
+            'name' => ['required|max:100'],
+            
         ];
     }
     public function messages(){
         return [
             "name.required" => "Il nome del progetto è obbligatorio",
             "name.max" => "Il nome del progetto deve essere lungo al massimo :max caratteri",
-            "image.image" => "Il file deve essere un'immagine valida",
-            "image.max" => "Il file deve essere grande al massimo :max kb"
+            
         ];
     }
 }
