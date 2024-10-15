@@ -19,6 +19,19 @@
                         <div class="col-12">
                             <label for="" class="control-label">IMAGES</label>
                             <input type="file" name="image" id="image" class="form-control control-sm">
+                        </div>
+                        <div class="col-12">
+                            <label for=" " class="control-label">TIPOLOGY PROJECTSS </label>
+                            <select name="type_id" id="" class="form-select form-select-sm">
+                                <option value="">seleziona tipologia </option>
+                               @foreach ($types as $type)
+                                       <option value="{{ $type->id }}" @selected($type->id == old('type_id'))>{{ $type->name }}</option>
+                               @endforeach
+
+                            </select>
+                        </div>
+
+                        <div>
                             <label for="" class="control-label">SUMMARY PROJECTS</label>
                             <textarea name="summary" id="" cols="30" rows="10" class="form-control form-control-sm" 
                             value="{{ old('summary')}}"></textarea>
